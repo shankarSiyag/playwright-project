@@ -1,0 +1,25 @@
+playwright-salesforce-framework/
+│
+├── tests/
+│   ├── login/
+│   │   ├── login.spec.ts
+│   │   ├── invalidLogin.spec.ts
+│   │   └── session.spec.ts
+│
+├── pages/
+│   └── LoginPage.ts
+│
+├── fixtures/
+│   └── baseFixture.ts
+│
+├── utils/
+│   ├── testData.ts
+│   └── constants.ts
+│
+├── config/
+│   └── env.ts
+│
+├── playwright.config.ts
+├── package.json
+├── tsconfig.json
+└── .github/workflows/playwright.yml
