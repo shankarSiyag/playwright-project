@@ -1,5 +1,5 @@
-import {test, expect } from '../../fixtures/baseFixture';
-import {users} from '../../utils/testData';
+import { test, expect } from '../../fixtures/baseFixture';
+import { users } from '../../utils/testData';
 
 test.describe('Invalid Login Scenarios', () => {
 
