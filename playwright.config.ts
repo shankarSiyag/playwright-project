@@ -13,13 +13,13 @@ const config = {
   reporter: 'html',
   use: {
     baseURL: 'https://test.salesforce.com',
-    headless: false,
+    headless: true,
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     trace: 'on',
   },
 
-  //retries: 1,
+  retries: 1,
 
   workers: process.env.CI ? 2 : 4,
   projects: [
