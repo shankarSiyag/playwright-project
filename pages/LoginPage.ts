@@ -7,6 +7,8 @@ export class LoginPage extends BasePage {
     readonly password: Locator;
     readonly loginBtn: Locator;
     readonly errorMsg: Locator;
+    headerAboveLogin: Locator;
+    loginbutton: Locator;
 
     constructor(page: Page) {
         super(page); // ✅ mandatory
@@ -15,6 +17,8 @@ export class LoginPage extends BasePage {
         this.password = page.locator("#password");
         this.loginBtn = page.locator("#Login");
         this.errorMsg = page.locator("#error");
+        this.headerAboveLogin = page.locator('//h1[text()="Salesforce login"]');
+        this.loginbutton = page.getByRole('button', { name: 'Log In to Sandbox', exact: true });
     }
 
     async navigate() {
