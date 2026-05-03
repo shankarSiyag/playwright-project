@@ -1,37 +1,37 @@
 // @ts-check
 //import { defineConfig, devices } from '@playwright/test';
 
-const {devices} = require('@playwright/test');
+const { devices } = require('@playwright/test');
 const { trace } = require('console');
 
 const config = {
-  testDir : './tests',
+  testDir: './tests',
   timeout: 30000,
-  expect:{
-    timeout:5000
+  expect: {
+    timeout: 5000
   },
-  reporter:'html',
-   use: {
+  reporter: 'html',
+  use: {
     baseURL: 'https://test.salesforce.com',
-    headless: true,
+    headless: false,
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     trace: 'on',
   },
 
-  retries: 1,
+  //retries: 1,
 
   workers: process.env.CI ? 2 : 4,
-  projects:[
+  projects: [
     {
-      name:'chromium',
-      use:{...devices['Desktop Chrome']}
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] }
     }
   ]
   // use:{
   //   video:'on',
   //    
-    
+
 }
 module.exports = config;
 
