@@ -22,15 +22,13 @@ const config = {
   retries: 1,
 
   workers: process.env.CI ? 2 : 4,
+  //forbidOnly: !!process.env.CI,
   projects: [
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] }
     }
   ]
-  // use:{
-  //   video:'on',
-  //    
 
 }
 module.exports = config;
