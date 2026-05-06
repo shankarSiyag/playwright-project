@@ -10,7 +10,7 @@ const config = {
   expect: {
     timeout: 5000
   },
-  reporter: 'html',
+  reporter: process.env.CI? 'blob':'html',
   use: {
     baseURL: 'https://test.salesforce.com',
     headless: true,
