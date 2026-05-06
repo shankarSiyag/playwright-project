@@ -32,6 +32,15 @@ jobs:
         with:
           node-version: 18
 
+      # Optional but recommended (faster builds)
+      - name: Cache npm
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
       - name: Install dependencies
         run: npm ci
 
@@ -40,6 +49,13 @@ jobs:
 
       - name: Run Playwright tests (sharded)
         run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+
+      - name: Verify blob-report exists
+        run: |
+          if [ ! -d "blob-report" ]; then
+            echo "ERROR: blob-report not found. Ensure 'blob' reporter is enabled in playwright.config.ts"
+            exit 1
+          fi
 
       - name: Upload blob report
         if: always()
@@ -69,12 +85,25 @@ jobs:
       - name: Download blob reports
         uses: actions/download-artifact@v4
         with:
-          path: all-blob-reports
           pattern: blob-report-*
+          path: all-blob-reports
           merge-multiple: true
 
+      # 🔍 Debug step (very important for troubleshooting)
+      - name: List downloaded files
+        run: |
+          echo "Downloaded artifacts:"
+          ls -R
+
+      - name: Verify reports directory
+        run: |
+          if [ ! -d "all-blob-reports" ]; then
+            echo "ERROR: all-blob-reports directory not found"
+            exit 1
+          fi
+
       - name: Merge reports into HTML
-        run: npx playwright merge-reports --reporter html ./all-blob-reports
+        run: npx playwright merge-reports --reporter html all-blob-reports
 
       - name: Upload final Playwright report
         uses: actions/upload-artifact@v4
