@@ -1,8 +1,7 @@
 // @ts-check
-//import { defineConfig, devices } from '@playwright/test';
+import { defineConfig, devices } from '@playwright/test';
 
-const { devices } = require('@playwright/test');
-const { trace } = require('console');
+
 
 const config = {
   testDir: './tests',
@@ -10,7 +9,7 @@ const config = {
   expect: {
     timeout: 5000
   },
-  reporter: 'html',
+  reporter: process.env.CI ? 'bob' : 'html',
   use: {
     baseURL: 'https://test.salesforce.com',
     headless: true,
@@ -44,3 +43,4 @@ module.exports = config;
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
+
