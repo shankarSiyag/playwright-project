@@ -1,6 +1,19 @@
 {
   "compilerOptions": {
-    "types": ["node"]
+    "types": ["node"],
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "baseUrl": ".",
+    "paths": {
+      "@tests/*": ["tests/*"],
+      "@pages/*": ["tests/pages/*"],
+      "@fixtures/*": ["tests/fixtures/*"]
+    },
+    "allowJs": true
   }
-  
 }
