@@ -1,5 +1,17 @@
 name: Playwright Tests CI CD
+name: Playwright Tests CI CD
 
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log Level'
+        required: true
+        default: 'warning'
 on:
   push:
     branches: [ main ]
