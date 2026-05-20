@@ -5,3 +5,7 @@ node_modules/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+echo "auth.json" >> .gitignore
+echo "**/auth.json" >> .gitignore
+echo "**/storageState.json" >> .gitignore
