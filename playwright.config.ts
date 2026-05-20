@@ -13,8 +13,9 @@ const config = {
   use: {
     baseURL: 'https://login.salesforce.com',
     headless: false,
-    screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
+
+    screenshot: 'on',
+    video: 'on',
     trace: 'on',
     storageState: 'auth.json',
   },
