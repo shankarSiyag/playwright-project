@@ -1,9 +1,5 @@
+
 import { test, expect } from '../../fixtures/baseFixture';
-import { users } from '../../utils/testData';
-import { log } from 'console';
-import { test, expect } from '../../fixtures/baseFixture';
-import { users } from '../../utils/testData';
-import { TIMEOUT } from 'dns';
 test.describe('Login Positive Scenarios', () => {
 
   test('Valid login', async ({ loginPage, page }) => {
