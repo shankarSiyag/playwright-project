@@ -5,17 +5,18 @@ import { defineConfig, devices } from '@playwright/test';
 
 const config = {
   testDir: './tests',
-  timeout: 30000,
+  timeout: 30_000,
   expect: {
-    timeout: 5000
+    timeout: 30_000
   },
   reporter: process.env.CI ? 'bob' : 'html',
   use: {
-    baseURL: 'https://test.salesforce.com',
-    headless: true,
+    baseURL: 'https://login.salesforce.com',
+    headless: false,
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     trace: 'on',
+    storageState: 'auth.json',
   },
 
   retries: 1,

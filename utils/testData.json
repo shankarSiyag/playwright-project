@@ -1,0 +1,12 @@
+[
+  {
+    "email": "navpe7547@navatargroup.com.emablflow",
+    "password": "navatar123",
+    "role": "admin"
+  },
+  {
+    "email": "testuser2@example.com",
+    "password": "Test@456",
+    "role": "standard"
+  }
+]
